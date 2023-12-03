@@ -2,6 +2,8 @@
 
 Welcome to the Stock Tracker React Site repository! This project is a simple web application built with React.js that allows users to track and monitor stock prices. It provides a user-friendly interface to view real-time stock data, add stocks to a watchlist, and stay informed about market trends.
 
+[![Join the Discord server](https://img.shields.io/badge/Join-Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/spqtAF9HXb)
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
@@ -10,7 +12,6 @@ Welcome to the Stock Tracker React Site repository! This project is a simple web
 - [Usage](#usage)
 - [Features](#features)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Getting Started
 
@@ -21,7 +22,7 @@ Make sure you have the following software installed on your machine:
 - [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/) (Node Package Manager)
 
-## Installation
+### Installation
 
 To get started with the Stock Tracker React Site, follow these steps:
 
@@ -47,3 +48,21 @@ These commands will clone the project from the GitHub repository, navigate you i
 
 Now you have successfully set up the Stock Tracker React Site on your local machine!
 
+## Usage
+WIP (I am using this for a simple stock tracking monitor and will upload screenshots here)
+
+## Features
+
+- **Real-time Stock Data:** Get up-to-date stock prices and information.
+- **Watchlist:** Keep track of your favorite stocks in a personalized watchlist.
+- **User-Friendly Interface:** Intuitive design for a seamless user experience.
+
+## Contributing
+
+If you'd like to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them with descriptive commit messages.
+4. Push your changes to your fork.
+5. Submit a pull request.
