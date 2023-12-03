@@ -1,8 +1,5 @@
-<p align="center">
-  <h1>Stock Tracker React Site</h1>
-  <p>Welcome to the Stock Tracker React Site repository! This project is a simple web application built with React.js that allows users to track and monitor stock prices. It provides a user-friendly interface to view real-time stock data, add stocks to a watchlist, and stay informed about market trends.</p>
-</p>
-
+# Stock Tracker React Site
+  Welcome to the Stock Tracker React Site repository! This project is a simple web application built with React.js that allows users to track and monitor stock prices. It provides a user-friendly interface to view real-time stock data, add stocks to a watchlist, and stay informed about market trends.
 
 [![Join the Discord server](https://img.shields.io/badge/Join-Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/spqtAF9HXb)
 
