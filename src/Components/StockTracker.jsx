@@ -85,18 +85,43 @@ const StockTracker = () => {
   // Rendering JSX for the StockTracker component
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>Stock Tracker</h1>
-      <p>Stock Symbol: {symbol}</p>
-      <p>Stock Value: {stockValue !== null ? `$${stockValue.toFixed(2)}` : 'Loading...'}</p>
-      <p>Time left until the next update: {formatTime(timeLeft)}</p>
-      <div>
-        <p>Select a Stock Symbol:</p>
-        {/* Mapping through stockList to create buttons for each stock symbol */}
+      {/* Title Header */}
+      <div className='title'>
+        <header>
+          <h1>Stock Tracker</h1>
+        </header>
+      </div>
+
+      {/* Header with GitHub link */}
+      <div className='written-by'>
+        <header>
+          <p>
+            Written by{' '}
+            <a href="https://github.com/BeeTillman" target="_blank" rel="noopener noreferrer">
+              Billups Tillman
+            </a>
+          </p>
+        </header>
+      </div>
+
+      {/* Tablist for stock symbols */}
+      <div className="tablist">
         {stockList.map((stock) => (
-          <button key={stock} onClick={() => setSymbol(stock)}>
+          <button
+            key={stock}
+            onClick={() => setSymbol(stock)}
+            className={symbol === stock ? 'active' : ''}
+          >
             {stock}
           </button>
         ))}
+      </div>
+
+      {/* Stock information section */}
+      <div className="stock-info">
+        <p>Stock Symbol: {symbol}</p>
+        <p>Stock Value: {stockValue !== null ? `$${stockValue.toFixed(2)}` : 'Loading...'}</p>
+        <p>Time left until the next update: {formatTime(timeLeft)}</p>
       </div>
     </div>
   );

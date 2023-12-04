@@ -1,45 +1,61 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  .container {
-    text-align: center;
-  }
-  
-  h1 {
-    color: #333;
-  }
-  
-  p {
-    color: #555;
-  }
-  
-  button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  button:focus {
-    outline: none;
-  }
-  
+  font-family: 'Arial', sans-serif;
+  background-color: #1f1f1f;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.tablist {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #61dafb;
+  color: #1f1f1f; /* Dark text color */
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button.active {
+  background-color: #4fa3d1;
+}
+
+button:hover {
+  background-color: #4fa3d1;
+}
+
+button:focus {
+  outline: none;
+}
+
+.stock-info {
+  text-align: center;
+}
+
+.written-by {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.title {
+  text-align: center;
+  color:#4fa3d1;
+}
