@@ -1,15 +1,31 @@
+/*
+  StockTracker Component
+  Written by: Billups Tillman (GitHub: https://github.com/BeeTillman)
+
+  This React component fetches and displays stock information using the Yahoo Finance API.
+  It allows users to select a stock symbol from a list and updates the stock value every hour.
+*/
+
+// Importing necessary modules from the React library
 import React, { useState, useEffect } from 'react';
+
+// Importing the external styles for the component
 import './styles.css';
 
+// Functional component for the StockTracker
 const StockTracker = () => {
-  const [symbol, setSymbol] = useState('AAPL');
-  const [stockValue, setStockValue] = useState(null);
-  const [timeLeft, setTimeLeft] = useState(60 * 60); // Initial time left in seconds (1 hour)
+  // State variables using the 'useState' hook to manage component state
+  const [symbol, setSymbol] = useState('AAPL'); // Current stock symbol
+  const [stockValue, setStockValue] = useState(null); // Current stock value
+  const [timeLeft, setTimeLeft] = useState(60 * 60); // Time left until the next update in seconds (initially set to 1 hour)
 
+  // List of stock symbols to choose from
   const stockList = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA'];
 
+  // Function to fetch stock data from the Yahoo Finance API
   const fetchStockValue = async () => {
     try {
+      // Making a GET request to the Yahoo Finance API
       const response = await fetch(
         `https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/v2/get-quotes?region=US&symbols=${symbol}`,
         {
@@ -21,42 +37,52 @@ const StockTracker = () => {
         }
       );
 
+      // Parsing the JSON response
       const data = await response.json();
+
+      // Extracting relevant stock information from the response
       const stockInfo = data.quoteResponse.result[0];
+
+      // Updating the component state with the fetched stock value
       setStockValue(stockInfo.regularMarketPrice);
-      setTimeLeft(60 * 60); // Reset the timer after each successful update
+
+      // Resetting the timer after each successful update
+      setTimeLeft(60 * 60);
     } catch (error) {
+      // Handling errors that may occur during the fetch operation
       console.error('Error fetching stock data:', error);
     }
   };
 
+  // Effect hook to run code on component mount and when the 'symbol' state changes
   useEffect(() => {
-    // Fetch initial stock value
+    // Fetching the initial stock value when the component mounts
     fetchStockValue();
 
-    // Set interval to update stock value every hour
+    // Setting intervals to update stock value every hour and timer every second
     const intervalId = setInterval(() => {
       fetchStockValue();
     }, 60 * 60 * 1000);
 
-    // Set interval to update timer every second
     const timerIntervalId = setInterval(() => {
       setTimeLeft((prevTimeLeft) => (prevTimeLeft > 0 ? prevTimeLeft - 1 : 0));
     }, 1000);
 
-    // Clean up intervals on component unmount
+    // Cleaning up intervals on component unmount to avoid memory leaks
     return () => {
       clearInterval(intervalId);
       clearInterval(timerIntervalId);
     };
-  }, [symbol]);
+  }, [symbol]); // Dependency array ensures that the effect runs when 'symbol' changes
 
+  // Function to format time in minutes and seconds
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
   };
 
+  // Rendering JSX for the StockTracker component
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <h1>Stock Tracker</h1>
@@ -65,6 +91,7 @@ const StockTracker = () => {
       <p>Time left until the next update: {formatTime(timeLeft)}</p>
       <div>
         <p>Select a Stock Symbol:</p>
+        {/* Mapping through stockList to create buttons for each stock symbol */}
         {stockList.map((stock) => (
           <button key={stock} onClick={() => setSymbol(stock)}>
             {stock}
@@ -75,4 +102,5 @@ const StockTracker = () => {
   );
 };
 
+// Exporting the StockTracker component as the default export
 export default StockTracker;
